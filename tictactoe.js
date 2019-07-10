@@ -1,9 +1,10 @@
 const gameboard = (() => {
-    let moves = [
+    const blankBoard = [
         [' ', ' ', ' '],
         [' ', ' ', ' '],
         [' ', ' ', ' ']
     ];
+    let moves = blankBoard;
 
     const getBoard = () => moves;
 
@@ -12,7 +13,7 @@ const gameboard = (() => {
             return false;
         } else {
             moves[y][x] = player.label;
-            this.getBoard();
+            return moves;
         }
     }
 
