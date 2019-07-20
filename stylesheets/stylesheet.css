@@ -1,0 +1,13 @@
+body {
+    width: 95%;
+    text-align: center;
+}
+
+#board {
+    display: inline-grid;
+    grid-gap: 1px;
+}
+
+.gameSquare {
+    border: 1px solid black;
+}
