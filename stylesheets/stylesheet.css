@@ -1,13 +1,37 @@
-body {
-    width: 95%;
+#game {
+    width: 70%;
     text-align: center;
+}
+
+div {
+    padding: 10px 0 0 0;
 }
 
 #board {
     display: inline-grid;
-    grid-gap: 1px;
+    text-align: center;
+    grid-gap: 2px;
 }
 
 .gameSquare {
     border: 1px solid black;
+}
+
+button {
+    color: #fff;
+    text-transform: uppercase;
+    background: rgb(0, 45, 141);
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+}
+
+button:hover {
+    background: #434343;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
 }

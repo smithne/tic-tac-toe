@@ -3,22 +3,31 @@ const playerFactory = (label) => {
 };
 
 const gameBoard = (() => {
-    const blankBoard = [
+    let moves = [
         [' ', ' ', ' '],
         [' ', ' ', ' '],
         [' ', ' ', ' ']
     ];
-
-    let moves = blankBoard;
+    
     let players = [];
     let currentPlayer = null;
     let winner = null;
 
+    const clearBoard = () => {
+        for (let i = 0; i < moves.length; i++) {
+            for (let j = 0; j < moves[i].length; j++) {
+                moves[i][j] = ' ';
+            }
+        }
+    }
 
     const newGame = (player1, player2) => {
+        console.log("triggering new game");
         players = [player1, player2];
         currentPlayer = players[0];
-        moves = blankBoard;
+        console.log(currentPlayer);
+        clearBoard();
+        console.log(moves);
         drawBoard(moves);
     }
 
@@ -33,6 +42,8 @@ const gameBoard = (() => {
             winner = checkWinner(currentPlayer);
             if (!winner) {
                 currentPlayer = (currentPlayer == players[0]) ? players[1] : players[0];
+            } else {
+                console.log(`Player ${currentPlayer.label} wins!`);
             }
         }
     }
@@ -107,7 +118,14 @@ const drawBoard = (board) => {
     });
 }
 
-
 const p1 = playerFactory('x');
 const p2 = playerFactory('o');
+
+const reset = () => {
+    gameBoard.newGame(p1,p2);
+}
+
+newGameBtn = document.querySelector('#newGameBtn');
+newGameBtn.addEventListener('click', reset);
+
 gameBoard.newGame(p1,p2);
